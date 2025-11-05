@@ -1,1 +1,336 @@
-
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Luz del Rey | Fanfic de El Señor de los Anillos</title>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cinzel:wght@400;700&family=El+Messiri:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'El Messiri', sans-serif;
+            color: #e8e1c7;
+            line-height: 1.6;
+            background: linear-gradient(to bottom, #0d2b1f, #1a4a35, #0d2b1f);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(13, 43, 31, 0.8);
+            border: 3px solid #c19b53;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            position: relative;
+        }
+        
+        header::before, header::after {
+            content: "❀";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: #c19b53;
+        }
+        
+        header::before {
+            left: 20px;
+        }
+        
+        header::after {
+            right: 20px;
+        }
+        
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            color: #c19b53;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-family: 'MedievalSharp', cursive;
+            font-size: 1.4rem;
+            color: #a5d6a7;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .hero-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .cover-container {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .cover {
+            width: 100%;
+            max-width: 400px;
+            border: 5px solid #c19b53;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .cover img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .info-container {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .main-content {
+            background: rgba(26, 74, 53, 0.8);
+            padding: 30px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        
+        .sidebar {
+            background: rgba(26, 74, 53, 0.8);
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        h2 {
+            font-family: 'Cinzel', serif;
+            color: #c19b53;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #5d4037;
+            font-size: 2rem;
+            text-align: center;
+        }
+        
+        h3 {
+            color: #a5d6a7;
+            margin: 20px 0 10px;
+            font-size: 1.4rem;
+            border-left: 3px solid #c19b53;
+            padding-left: 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .sinopsis {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            background: rgba(39, 111, 79, 0.6);
+            padding: 25px;
+            border-radius: 5px;
+            border-left: 4px solid #c19b53;
+        }
+        
+        .hashtags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .tag {
+            background-color: #1b5e20;
+            color: #c8e6c9;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid #4caf50;
+        }
+        
+        .characters {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .character {
+            background: linear-gradient(to bottom, #2e7d32, #1b5e20);
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            border: 2px solid #5d4037;
+        }
+        
+        .character-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #c19b53;
+            background: linear-gradient(45deg, #388e3c, #1b5e20);
+            font-size: 2rem;
+            color: #c19b53;
+        }
+        
+        .btn-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to bottom, #c19b53, #a08644);
+            color: #1b5e20;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            border: 2px solid #5d4037;
+            font-family: 'MedievalSharp', cursive;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .btn:hover {
+            background: linear-gradient(to bottom, #a08644, #c19b53);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: rgba(13, 43, 31, 0.8);
+            border-top: 3px solid #c19b53;
+            margin-top: 30px;
+            border-radius: 5px;
+        }
+        
+        .inkitt-btn {
+            background: linear-gradient(to bottom, #81c784, #4caf50);
+        }
+        
+        .inkitt-btn:hover {
+            background: linear-gradient(to bottom, #4caf50, #81c784);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .btn-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>La Luz del Rey</h1>
+            <p>FANFIC DISPONIBLE EN WATTPAD E INKITT</p>
+        </header>
+        
+        <div class="hero-section">
+            <div class="cover-container">
+                <div class="cover">
+                    <img src="https://img.wattpad.com/cover/370676694-256-k943756.jpg" alt="Portada">
+                </div>
+            </div>
+            
+            <div class="info-container">
+                <div class="main-content">
+                    <section class="sinopsis">
+                        <h2>Sinopsis</h2>
+                        <p>Mara, una joven elfa que huye de su hogar en busca de libertad, se pierde en el Bosque Negro y descubre el reino oculto de Thranduil. Acogida por los elfos del reino, encuentra en ellos un nuevo hogar.</p>
+                        <p>Mara forma un vínculo especial con el rey Thranduil, ayudándolo a sanar y transformar su tristeza en luz tras la pérdida de su esposa. Forja una profunda amistad con Legolas, el hijo del rey, embarcándose en guerras y consecuencias en el reino de Erebor.</p>
+                    </section>
+                    
+                    <div class="hashtags">
+                        <span class="tag">#lordoftherings</span>
+                        <span class="tag">#lotr</span>
+                        <span class="tag">#thehobbit</span>
+                        <span class="tag">#thranduilfanfic</span>
+                        <span class="tag">#thranduilxtn</span>
+                    </div>
+                    
+                    <div class="btn-container">
+                        <a href="https://www.wattpad.com/story/370676694-la-luz-del-rey" class="btn" target="_blank">Leer en Wattpad</a>
+                        <a href="https://www.inkitt.com/stories/1475852?locale=es" class="btn inkitt-btn" target="_blank">Leer en Inkitt</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-section">
+            <div class="main-content" style="flex: 2;">
+                <section class="detalles">
+                    <h2>Detalles de la Historia</h2>
+                    <h3>Trama Principal</h3>
+                    <p>La historia sigue a Mara, una elfa que escapa de su hogar en busca de libertad y termina descubriendo el reino oculto de Thranduil en el Bosque Negro. Allí encuentra no solo refugio, sino también un propósito al ayudar al rey a superar su dolor.</p>
+                                        
+                    <h3>Temas</h3>
+                    <p>La historia explora temas de sanación, redención, amistad, lealtad y la búsqueda de un hogar en medio de la adversidad.</p>
+                </section>
+            </div>
+            
+            <div class="sidebar" style="flex: 1;">
+                <section class="personajes">
+                    <h2>Personajes Principales</h2>
+                    <div class="characters">
+                        <div class="character">
+                            <h3>Thranduil</h3>
+                            <p>Rey élfico que busca sanar su corazón tras la pérdida</p>
+                        </div>
+                        <div class="character">
+                            <h3>Mara</h3>
+                            <p>Joven elfa que encuentra un nuevo hogar en el Bosque Negro</p>
+                        </div>
+                        <div class="character">
+                            <h3>Legolas</h3>
+                            <p>Príncipe élfico que forja una amistad profunda con Mara</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="info-adicional" style="margin-top: 30px;">
+                    <h2>Información Adicional</h2>
+                    <p><strong>Género:</strong> Fantasía, Drama, Romance</p>
+                    <p><strong>Ambientación:</strong> Tierra Media, Bosque Negro, Reino de Thranduil</p>
+                    <p><strong>Inspiración:</strong> El Señor de los Anillos & El Hobbit</p>
+                    <p><strong>Estado:</strong> Disponible en Wattpad e Inkitt</p>
+                </section>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© Todos los derechos reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>
