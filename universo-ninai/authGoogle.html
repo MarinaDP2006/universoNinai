@@ -34,10 +34,8 @@
             <h3 class="card-title mb-4">Iniciar Sesión</h3>
             <p class="text-muted mb-4">Elige tu método de autenticación</p>
             
-            <!-- Contenedor para el botón de Google -->
             <div id="googleAuthContainer" class="mb-3 d-flex justify-content-center"></div>
             
-            <!-- Info de usuario logueado (oculta inicialmente) -->
             <div id="userInfo" class="mt-4" style="display: none;">
               <h4>¡Bienvenida, <span id="userName"></span>!</h4>
               <p>Ya puedes acceder al test de personaje y explorar tu universo.</p>
@@ -56,16 +54,15 @@
     </div>
   </div>
 
-  <!-- Script de tu clase AuthGoogle -->
   <script>
     class AuthGoogle {
       constructor() {
-        // REEMPLAZA ESTO CON TU CLIENT ID REAL DE GOOGLE
-        this.clientId = 'TU_CLIENT_ID_DE_GOOGLE.apps.googleusercontent.com';
+        this.clientId = '320424571547-06e06fe660irejceas@m4ov40f4c45st.apps.googleusercontent.com';
         this.initializeGoogleAuth();
       }
 
       initializeGoogleAuth() {
+        // Cargar la librería de Google Identity Services
         if (typeof google === 'undefined') {
           const script = document.createElement('script');
           script.src = 'https://accounts.google.com/gsi/client';
@@ -79,33 +76,30 @@
       }
 
       renderGoogleButton() {
-        const googleButton = document.createElement('div');
-        googleButton.className = 'g_id_signin';
-        
         const container = document.getElementById('googleAuthContainer');
-        if (container) {
-          container.innerHTML = '';
-          container.appendChild(googleButton);
-        }
+        if (!container) return;
 
-        window.handleGoogleAuth = (response) => this.handleCredentialResponse(response);
-        
+        container.innerHTML = '<div class="g_id_signin"></div>';
+
         google.accounts.id.initialize({
           client_id: this.clientId,
-          callback: window.handleGoogleAuth
+          callback: (response) => this.handleCredentialResponse(response),
+          // Configuración adicional para evitar problemas de política
+          auto_select: false,
+          cancel_on_tap_outside: true
         });
 
         google.accounts.id.renderButton(
-          googleButton,
-          { 
-            theme: "outline", 
-            size: "large",
+          container.querySelector('.g_id_signin'),
+          {
+            theme: 'outline',
+            size: 'large',
             width: 300,
-            text: "signin_with"
+            text: 'continue_with',
+            shape: 'rectangular'
           }
         );
 
-        // Verificar si ya está logueado
         this.checkExistingLogin();
       }
 
@@ -119,21 +113,25 @@
       }
 
       handleCredentialResponse(response) {
-        console.log('Google Auth Response:', response);
+        console.log('Google Auth Response recibida');
         
-        // Decodificar el JWT
-        const payload = JSON.parse(atob(response.credential.split('.')[1]));
-        
-        // Guardar en localStorage
-        localStorage.setItem("usuarioLogueado", "true");
-        localStorage.setItem("userName", payload.name);
-        localStorage.setItem("userEmail", payload.email);
-        localStorage.setItem("userPicture", payload.picture);
-        localStorage.setItem("googleAuthToken", response.credential);
+        try {
+          const payload = JSON.parse(atob(response.credential.split('.')[1]));
+          
+          localStorage.setItem("usuarioLogueado", "true");
+          localStorage.setItem("userName", payload.name || 'Usuario');
+          localStorage.setItem("userEmail", payload.email || '');
+          localStorage.setItem("userPicture", payload.picture || '');
+          localStorage.setItem("googleAuthToken", response.credential);
 
-        // Mostrar información del usuario
-        this.showUserInfo(payload.name);
-        this.showSuccessMessage(`¡Bienvenido ${payload.name}!`);
+        this.showUserInfo(payload.name || 'Usuario');
+        this.showSuccessMessage(`¡Bienvenida ${payload.name || 'Usuario'}!`);
+          setTimeout(() => {window.location.href = 'index.html';
+          }, 2000);
+        } catch (error) {
+          console.error('Error procesando la respuesta:', error);
+          this.showErrorMessage('Error al iniciar sesión');
+        }
       }
 
       showUserInfo(userName) {
@@ -147,8 +145,20 @@
       }
 
       showSuccessMessage(message) {
+        this.showAlert(message, 'success');
+      }
+
+      showErrorMessage(message) {
+        this.showAlert(message, 'danger');
+      }
+
+      showAlert(message, type) {
+        // Remover alertas existentes
+        const existingAlerts = document.querySelectorAll('.alert-position');
+        existingAlerts.forEach(alert => alert.remove());
+
         const toast = document.createElement('div');
-        toast.className = 'alert alert-success position-fixed top-0 end-0 m-3';
+        toast.className = `alert alert-${type} alert-position position-fixed top-0 start-50 translate-middle-x mt-3`;
         toast.style.zIndex = '9999';
         toast.innerHTML = `
           ${message}
@@ -160,7 +170,7 @@
           if (toast.parentNode) {
             toast.parentNode.removeChild(toast);
           }
-        }, 3000);
+        }, 5000);
       }
 
       logout() {
@@ -173,26 +183,26 @@
         const googleContainer = document.getElementById('googleAuthContainer');
         const userInfo = document.getElementById('userInfo');
 
-        if (googleContainer) googleContainer.style.display = 'block';
+        if (googleContainer) {
+          googleContainer.style.display = 'block';
+          googleContainer.innerHTML = '';
+        }
         if (userInfo) userInfo.style.display = 'none';
 
         if (google && google.accounts) {
           google.accounts.id.disableAutoSelect();
+          setTimeout(() => this.renderGoogleButton(), 100);
         }
       }
     }
 
-    // Inicializar cuando el DOM esté listo
     document.addEventListener('DOMContentLoaded', function() {
       window.authGoogle = new AuthGoogle();
       
-      const logoutBtn = document.getElementById('logoutBtn');
-      if (logoutBtn) {
-        logoutBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          window.authGoogle.logout();
-        });
-      }
+      document.getElementById('logoutBtn')?.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.authGoogle.logout();
+      });
     });
   </script>
 </body>
