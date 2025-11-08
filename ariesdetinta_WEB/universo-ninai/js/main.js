@@ -1,4 +1,5 @@
 function renderHistorias(seccionId, historias) {
+function renderHistorias(seccionId, historias) {
   const contenedor = document.getElementById(`lista-${seccionId}`);
   if (!contenedor) return;
   contenedor.innerHTML = "";
@@ -23,22 +24,19 @@ fetch("http://localhost/universo-ninai/historias.php")
 // Datos en caso de que la conexión falle
   const baseDeDatos = {
 ultimas: [
-  { titulo: "Infinite Game", resumen: "Tras la caída de Asgard y la derrota ante Thanos, dos personas deben sobrevivir, sanar y enfrentarse a nuevas amenazas." },
-  { titulo: "El gorrión y la mujer del mar", resumen: "Melanie, hija de Will Turner y Elisabeth, se ve envuelta en una aventura de piratas, traiciones y amor junto a Jack Sparrow." },
-  { titulo: "Dayan Denali", resumen: "Tras un accidente, Dayan despierta en la misteriosa familia Denali. Entre secretos, lobos y vampiros, descubre su verdadero origen." }
+  { titulo: "Infinite Game"},
+  { titulo: "Entre páginas e historias"},
 ],
 
 top: [
-  { titulo: "La luz del Rey", resumen: "Mara, princesa de Arathorn, busca libertad y encuentra un hogar entre elfos, guerras y secretos en el Bosque Negro." },
-  { titulo: "Dayan Denali", resumen: "Tras un accidente, Dayan despierta en la misteriosa familia Denali. Entre secretos, lobos y vampiros, descubre su verdadero origen." },
-  { titulo: "Infinite Game", resumen: "Tras la caída de Asgard y la derrota ante Thanos, dos personas deben sobrevivir, sanar y enfrentarse a nuevas amenazas." },
-  { titulo: "Entre páginas e historias", resumen: "Maxine Hartley nunca creyó en las coincidencias, hasta que dos hombres y una biblioteca cambiaron su vida en Londres." },
-  { titulo: "El gorrión y la mujer del mar", resumen: "Melanie, hija de Will Turner y Elisabeth, se ve envuelta en una aventura de piratas, traiciones y amor junto a Jack Sparrow." }
+  { titulo: "La luz del Rey"},
+  { titulo: "Dayan Denali"},
+  { titulo: "El gorrión y la mujer del mar"}
 ],
 
 recomendadas: [
-  { titulo: "Entre páginas e historias", resumen: "Maxine Hartley nunca creyó en las coincidencias, hasta que dos hombres y una biblioteca cambiaron su vida en Londres." },
-  { titulo: "El gorrión y la mujer del mar", resumen: "Melanie, hija de Will Turner y Elisabeth, se ve envuelta en una aventura de piratas, traiciones y amor junto a Jack Sparrow." }
+  { titulo: "Entre páginas e historias"},
+  { titulo: "Infinite Game"},
 ]
 };
 // Intentar cargar datos desde el servidor
