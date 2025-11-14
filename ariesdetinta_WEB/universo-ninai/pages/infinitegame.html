@@ -1,0 +1,353 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinite Game Natki | Fanfic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #e8e6e3;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #0c0c2e 0%, #1a1a4a 50%, #2d1a4a 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(20, 20, 60, 0.8);
+            margin-bottom: 30px;
+            border-radius: 10px;
+            position: relative;
+            border: 2px solid #e62429;
+        }
+        
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .title-accent {
+            color: #e62429;
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            color: #b0b0ff;
+            margin-bottom: 20px;
+        }
+        
+        .hero-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .cover-container {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .cover {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .cover img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .info-container {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .main-content {
+            background: rgba(30, 30, 80, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #e62429;
+        }
+        
+        .sidebar {
+            background: rgba(30, 30, 80, 0.8);
+            padding: 25px;
+            border-radius: 10px;
+            border-right: 4px solid #e62429;
+        }
+        
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: #ffffff;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e62429;
+            font-size: 2rem;
+        }
+        
+        h3 {
+            color: #b0b0ff;
+            margin: 20px 0 10px;
+            font-size: 1.4rem;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .sinopsis {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            background: rgba(40, 40, 100, 0.6);
+            padding: 25px;
+            border-radius: 8px;
+        }
+        
+        .quote {
+            font-style: italic;
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            border-left: 3px solid #e62429;
+            background: rgba(230, 36, 41, 0.1);
+            border-radius: 5px;
+        }
+        
+        .hashtags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .tag {
+            background-color: #1a1a4a;
+            color: #b0b0ff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid #3a3a8a;
+        }
+        
+        .characters {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .character {
+            background: linear-gradient(to bottom, #2a2a6a, #1a1a4a);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #4a4aaa;
+        }
+        
+        .character-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #e62429;
+            background: linear-gradient(45deg, #3a3a8a, #2a2a6a);
+            font-size: 1.8rem;
+            color: #e62429;
+        }
+        
+        .btn-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to bottom, #e62429, #c01015);
+            color: #ffffff;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            flex: 1;
+            min-width: 200px;
+            transition: transform 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(to bottom, #c01015, #e62429);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: rgba(20, 20, 60, 0.8);
+            margin-top: 30px;
+            border-radius: 10px;
+            border-top: 2px solid #e62429;
+        }
+        
+        .inkitt-btn {
+            background: linear-gradient(to bottom, #4a4aaa, #2a2a6a);
+        }
+        
+        .inkitt-btn:hover {
+            background: linear-gradient(to bottom, #2a2a6a, #4a4aaa);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .btn-container {
+                flex-direction: column;
+            }
+        }
+        
+        .marvel-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #e62429;
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>INFINITE <span class="title-accent">GAME</span></h1>
+            <div class="marvel-logo">MARVEL FANFICTION</div>
+        </header>
+        
+        <div class="hero-section">
+            <div class="cover-container">
+                <div class="cover">
+                    <img src="https://img.wattpad.com/cover/400262254-256-k673506.jpg" alt="Portada: Infinite Game Natki">
+                </div>
+            </div>
+            
+            <div class="info-container">
+                <div class="main-content">
+                    <section class="sinopsis">
+                        <h2>Sinopsis</h2>
+                        <p>En la soledad del complejo de los Vengadores, un dios encuentra una conexión inesperada con la única persona que parece entender lo que es vivir una vida de redención manchada de sangre.Natasha Romanoff. Esta amistad se convertirá en el pilar que los sostendrá durante años.</p>
+                        </div>
+                        
+                        <p>Unos años después, cuando surge una última esperanza, todos deberán reunirse.</p>
+                    </section>
+                    
+                    <div class="hashtags">
+                        <span class="tag">#avengers</span>
+                        <span class="tag">#brucebanner</span>
+                        <span class="tag">#doom</span>
+                        <span class="tag">#doomsday</span>
+                        <span class="tag">#endgame</span>
+                        <span class="tag">#enemiestolovers</span>
+                        <span class="tag">#infinitywar</span>
+                        <span class="tag">#lokilaufeyson</span>
+                        <span class="tag">#marvel</span>
+                        <span class="tag">#marvelfanfic</span>
+                        <span class="tag">#natasharomanoff</span>
+                        <span class="tag">#steverogers</span>
+                        <span class="tag">#thanos</span>
+                        <span class="tag">#thor</span>
+                        <span class="tag">#tonystark</span>
+                        <span class="tag">#universe</span>
+                    </div>
+                    
+                    <div class="btn-container">
+                        <a href="https://www.wattpad.com/story/400262254-infinite-game-natki" class="btn" target="_blank">Leer en Wattpad</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-section">
+            <div class="main-content" style="flex: 2;">
+                <section class="detalles">
+                    <h2>Detalles de la Historia</h2>
+                    <h3>Trama Principal</h3>
+                    <p>La historia explora la conexión inesperada entre Loki y Natasha Romanoff en el complejo de los Vengadores, dos almas marcadas por pasados oscuros que encuentran comprensión mutua en medio de la soledad.</p>
+                                        
+                    <h3>Temas</h3>
+                    <p>La historia aborda temas de redención, amistad improbable, segundas oportunidades y el peso de un pasado sangriento, todo en el contexto del universo cinematográfico de Marvel.</p>
+                </section>
+            </div>
+            
+            <div class="sidebar" style="flex: 1;">
+                <section class="personajes">
+                    <h2>Personajes Principales</h2>
+                    <div class="characters">
+                        <div class="character">
+                            <h3>Loki</h3>
+                            <p>Dios de las mentiras buscando redención</p>
+                        </div>
+                        <div class="character">
+                            <h3>Natasha</h3>
+                            <p>Viuda Negra con un pasado sangriento</p>
+                        </div>
+                        <div class="character">
+                            <h3>Vengadores</h3>
+                            <p>El equipo que deberá reunirse</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="info-adicional" style="margin-top: 30px;">
+                    <h2>Información Adicional</h2>
+                    <p><strong>Género:</strong> Fanfiction, Drama, Acción</p>
+                    <p><strong>Ambientación:</strong> Universo Cinematográfico de Marvel</p>
+                    <p><strong>Inspiración:</strong> Avengers, Loki, Black Widow</p>
+                    <p><strong>Estado:</strong> Disponible en Wattpad</p>
+                </section>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© Todos los derechos reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>
