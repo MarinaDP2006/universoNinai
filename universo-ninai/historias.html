@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Historias | Universo Ninai</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Cinzel+Decorative&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    /* Fondo y tipografía */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #6DA34D, #8E44AD, #6A0DAD);
+      color: #1C1C1C;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    h1 {
+      font-family: 'Cinzel Decorative', cursive;
+      text-align: center;
+      margin: 40px 0;
+      color: #fff;
+    }
+
+    /* Contenedor de historias */
+    .historia-container {
+      background-color: rgba(28, 28, 28, 0.85);
+      color: #f5f5f5;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px auto;
+      max-width: 900px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      border: 1px solid #d4af37;
+      transition: transform 0.3s;
+    }
+
+    .historia-container:hover {
+      transform: scale(1.03);
+    }
+
+    .historia-container img {
+      max-height: 250px;
+      width: auto;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    /* Botón dorado */
+    .btn-gold {
+      background-color: #d4af37;
+      color: #1C1C1C;
+      border: none;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+      transition: background 0.3s;
+    }
+
+    .btn-gold:hover {
+      background-color: #c9a32f;
+      color: #111;
+    }
+
+    /* Menú fijo */
+    .dropdown-menu-wrapper {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 9999;
+    }
+footer {
+      text-align: center;
+      padding: 15px;
+      background: #1C1C1C;
+      color: #D4AF37;
+      margin-top: 40px;
+      margin-top: auto;
+    }
+
+    @media (max-width: 768px) {
+      .historia-container {
+        flex-direction: column;
+      }
+
+      .user-login-button {
+        right: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar común -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon bg-light"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.php">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Historias-->
+   <section class="banner">
+  <img src="assets/img/bannerHistorias.jpg" alt="Banner Historias" class="img-fluid w-100 mb-4">
+</section>
+  <main class="container">
+    <div class="historia-container">
+      <img src="assets/img/historia1.jpg" alt="Portada - La luz del Rey" />
+      <div>
+        <h5>La luz del Rey</h5>
+        <p>En un rincón remoto de la Tierra Media, Mara, princesa de Arathorn, busca libertad y encuentra un hogar entre elfos, guerras y secretos. Una historia de magia en el Bosque Negro.</p>
+        <p><strong>Plataforma:</strong> Wattpad e Inkitt</p>
+        <a class="btn-gold" href="pages/laluzdelrey.html">+ Info</a>
+      </div>
+    </div>
+  <div class="historia-container">
+    <img src="assets/img/historia2.jpg" alt="Portada - Entre páginas e historias" />
+    <div>
+      <h5>Entre páginas e historias</h5>
+      <p>Maxine Hartley nunca creyó en las coincidencias, hasta que dos hombres y una biblioteca cambiaron su vida en Londres. Una novela original sobre segundas oportunidades, amistad, amor y el poder de los libros.</p>
+      <p><strong>Plataforma:</strong> Wattpad</p>
+      <a class="btn-gold" href="pages/entrepaginasehistorias.html">+ Info</a>
+    </div>
+  </div>
+
+  <div class="historia-container">
+    <img src="assets/img/historia3.jpg" alt="Portada - Infinite Game" />
+    <div>
+      <h5>Infinite Game</h5>
+      <p>Tras la caída de Asgard y la derrota ante Thanos, dos personas deben sobrevivir, sanar y enfrentarse a nuevas amenazas. Un fanfic épico de Marvel sobre segundas oportunidades, sacrificio y redención.</p>
+      <p><strong>Plataforma:</strong> Wattpad</p>
+      <a class="btn-gold" href="pages/infinitegame.html">+ Info</a>
+    </div>
+  </div>
+
+  <div class="historia-container">
+    <img src="assets/img/historia4.jpg" alt="Portada - Dayan Denali" />
+    <div>
+      <h5>Dayan Denali</h5>
+      <p>Tras un accidente, Dayan despierta en la misteriosa familia Denali. Entre secretos, lobos y vampiros, descubre su verdadero origen y un destino que cambiará su vida para siempre.</p>
+      <p><strong>Plataforma:</strong> Wattpad e Inkitt</p>
+      <a class="btn-gold" href="pages/dayandenali.html">+ Info</a>
+    </div>
+  </div>
+
+  <div class="historia-container">
+    <img src="assets/img/historia5.jpg" alt="Portada - El gorrión y la mujer del mar" />
+    <div>
+      <h5>El gorrión y la mujer del mar</h5>
+      <p>Melanie, hija de Will Turner y Elisabeth, se ve envuelta en una aventura de piratas, traiciones y amor junto a Jack Sparrow.</p>
+      <p><strong>Plataforma:</strong> Wattpad e Inkitt</p>
+      <a class="btn-gold" href="pages/elgorrionylamujerdelmar.html">+ Info</a>
+    </div>
+  </div>
+  </main>
+  
+  <footer>
+    <p><a href="/politicy.html" target="_blank">Politica de Privacidad </a></p>
+    <p>&copy; 2025 Universo Ninai</p>
+  </footer>
+</body>
+</html>
